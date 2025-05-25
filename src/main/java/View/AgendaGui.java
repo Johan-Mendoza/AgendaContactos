@@ -55,6 +55,16 @@ public class AgendaGui extends JFrame {
         txtEmail = new JTextField();
         panelForm.add(txtEmail);
 
+        // Aquí cambiamos las fuentes y colores de las etiquetas
+        Component[] componentes = panelForm.getComponents();
+        for (Component comp : componentes) {
+            if (comp instanceof JLabel) {
+                JLabel label = (JLabel) comp;
+                label.setFont(new Font("Verdana", Font.BOLD, 14));
+                label.setForeground(new Color(50, 50, 100));
+            }
+        }
+
         // Botones
         JButton btnGuardar = new JButton("Guardar");
         JButton btnEditar = new JButton("Editar");
