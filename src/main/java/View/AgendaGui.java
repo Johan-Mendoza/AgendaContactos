@@ -118,7 +118,10 @@ public class AgendaGui extends JFrame {
         // Layout principal
         setLayout(new BorderLayout());
         add(panelForm, BorderLayout.NORTH);
-        add(new JScrollPane(tablaContactos), BorderLayout.CENTER);
+        JScrollPane scrollPane = new JScrollPane(tablaContactos);
+        scrollPane.getViewport().setBackground(new Color(166, 166, 234)); // Fondo lavanda claro para el área visible
+        tablaContactos.setBackground(new Color(245, 245, 255)); // Fondo más claro para las celdas de la tabla
+        add(scrollPane, BorderLayout.CENTER);
         add(panelBotones, BorderLayout.SOUTH);
     }
 
