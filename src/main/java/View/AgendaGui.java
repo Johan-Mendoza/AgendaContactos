@@ -22,16 +22,18 @@ public class AgendaGui extends JFrame {
     }
 
     private void configurarVentana() {
-        setTitle("Gestión de Contactos - Swing");
+        setTitle("Gestión de Contactos");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        getContentPane().setBackground(new Color(230, 230, 250));
     }
 
     private void initComponentes() {
         // Panel de formulario
         JPanel panelForm = new JPanel(new GridLayout(5, 2, 10, 10));
         panelForm.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        panelForm.setBackground(new Color(230, 230, 250));
 
         panelForm.add(new JLabel("ID (para editar):"));
         txtId = new JTextField();
@@ -68,6 +70,7 @@ public class AgendaGui extends JFrame {
         btnLimpiar.addActionListener(e -> limpiarFormulario());
 
         JPanel panelBotones = new JPanel(new FlowLayout());
+        panelBotones.setBackground(new Color(230, 230, 250));
         panelBotones.add(btnGuardar);
         panelBotones.add(btnEditar);
         panelBotones.add(btnEliminar);
@@ -89,10 +92,15 @@ public class AgendaGui extends JFrame {
             }
         });
 
+        // Cambiar fondo del viewport del JScrollPane
+        JScrollPane scrollPane = new JScrollPane(tablaContactos);
+        scrollPane.getViewport().setBackground(new Color(230, 230, 250)); // mismo color lavanda
+        scrollPane.setBackground(new Color(230, 230, 250));
+
         // Layout principal
         setLayout(new BorderLayout());
         add(panelForm, BorderLayout.NORTH);
-        add(new JScrollPane(tablaContactos), BorderLayout.CENTER);
+        add(scrollPane, BorderLayout.CENTER);
         add(panelBotones, BorderLayout.SOUTH);
     }
 
