@@ -32,6 +32,7 @@ public class AgendaGui extends JFrame {
         // Panel de formulario
         JPanel panelForm = new JPanel(new GridLayout(5, 2, 10, 10));
         panelForm.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        panelForm.setBackground(new Color(230, 230, 250)); // Fondo lila
 
         panelForm.add(new JLabel("ID (para editar):"));
         txtId = new JTextField();
@@ -56,18 +57,33 @@ public class AgendaGui extends JFrame {
 
         // Botones
         JButton btnGuardar = new JButton("Guardar");
-        btnGuardar.addActionListener(this::guardarContacto);
-
         JButton btnEditar = new JButton("Editar");
-        btnEditar.addActionListener(this::editarContacto);
-
         JButton btnEliminar = new JButton("Eliminar");
-        btnEliminar.addActionListener(this::eliminarContacto);
-
         JButton btnLimpiar = new JButton("Limpiar");
+
+        // Colores de fondo
+        btnGuardar.setBackground(new Color(63, 81, 181));    // Azul
+        btnEditar.setBackground(new Color(76, 175, 80));     // Verde
+        btnEliminar.setBackground(new Color(244, 67, 54));   // Rojo
+        btnLimpiar.setBackground(new Color(158, 158, 158));  // Gris
+
+        // Estilo del texto y botones
+        JButton[] botones = {btnGuardar, btnEditar, btnEliminar, btnLimpiar};
+        for (JButton btn : botones) {
+            btn.setForeground(Color.WHITE);
+            btn.setFocusPainted(false);
+            btn.setFont(new Font("Arial", Font.BOLD, 14));
+        }
+
+        // Listeners
+        btnGuardar.addActionListener(this::guardarContacto);
+        btnEditar.addActionListener(this::editarContacto);
+        btnEliminar.addActionListener(this::eliminarContacto);
         btnLimpiar.addActionListener(e -> limpiarFormulario());
 
+        // Panel de botones
         JPanel panelBotones = new JPanel(new FlowLayout());
+        panelBotones.setBackground(new Color(230, 230, 250)); // Fondo lila
         panelBotones.add(btnGuardar);
         panelBotones.add(btnEditar);
         panelBotones.add(btnEliminar);
@@ -196,5 +212,4 @@ public class AgendaGui extends JFrame {
         txtTelefono.setText("");
         txtEmail.setText("");
     }
-
 }
